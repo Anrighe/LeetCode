@@ -4,6 +4,11 @@
 class Solution 
 {
     public:
+
+        /// @brief Eliminates the maximum number of monsters from the game, where the game is played
+        /// @param dist Vector of the distances of each monster from the city
+        /// @param speed Vector of the speed of each monster in m/s
+        /// @return The maximum number of monsters that can be eliminated
         int eliminateMaximum(std::vector<int>& dist, std::vector<int>& speed) 
         {
             int n = dist.size();

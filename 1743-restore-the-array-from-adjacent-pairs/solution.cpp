@@ -6,51 +6,56 @@
 
 class Solution 
 {
-public:
-    std::vector<int> restoreArray(std::vector<std::vector<int>>& adjacentPairs) 
-    {
-        std::unordered_map<int, std::vector<int>> adjacencyMap;
-        std::vector<int> nums;
+    public:
 
-        for (const auto& pair : adjacentPairs) 
+        /// @brief Restores the original array from the given adjacent pairs, where the original array 
+        ///     is a permutation of the integers from 1 to n.
+        /// @param adjacentPairs Vector of adjacent pairs
+        /// @return The original array
+        std::vector<int> restoreArray(std::vector<std::vector<int>>& adjacentPairs) 
         {
-            adjacencyMap[pair[0]].push_back(pair[1]);
-            adjacencyMap[pair[1]].push_back(pair[0]);
-        }
+            std::unordered_map<int, std::vector<int>> adjacencyMap;
+            std::vector<int> nums;
 
-        for (const auto& entry : adjacencyMap) 
-        {
-            if (entry.second.size() == 1) 
+            for (const auto& pair : adjacentPairs) 
             {
-                nums.push_back(entry.first);
-                break;
+                adjacencyMap[pair[0]].push_back(pair[1]);
+                adjacencyMap[pair[1]].push_back(pair[0]);
             }
+
+            for (const auto& entry : adjacencyMap) 
+            {
+                if (entry.second.size() == 1) 
+                {
+                    nums.push_back(entry.first);
+                    break;
+                }
+            }
+
+            int current = nums[0];
+
+            while (adjacencyMap[current].size() > 0) 
+            {
+                std::cout<<"Current: "<<current<<" Neighbors: ";
+                for (std::size_t i = 0; i < adjacencyMap[current].size(); ++i) 
+                    std::cout<<adjacencyMap[current][i]<<" ";
+
+                std::cout<<std::endl;
+
+                int next = adjacencyMap[current][0];
+                nums.push_back(next);
+
+                auto& neighbors = adjacencyMap[next];
+
+                std::cout<<"Removing "<<current<<" from neighbors of "<<next<<std::endl;
+
+                neighbors.erase(std::remove(neighbors.begin(), neighbors.end(), current), neighbors.end());
+
+                current = next;
+            }
+
+            return nums;
         }
-
-        int current = nums[0];
-
-        while (adjacencyMap[current].size() > 0) 
-        {
-            std::cout<<"Current: "<<current<<" Neighbors: ";
-            for (std::size_t i = 0; i < adjacencyMap[current].size(); ++i) 
-                std::cout<<adjacencyMap[current][i]<<" ";
-
-            std::cout<<std::endl;
-
-            int next = adjacencyMap[current][0];
-            nums.push_back(next);
-
-            auto& neighbors = adjacencyMap[next];
-
-            std::cout<<"Removing "<<current<<" from neighbors of "<<next<<std::endl;
-
-            neighbors.erase(std::remove(neighbors.begin(), neighbors.end(), current), neighbors.end());
-
-            current = next;
-        }
-
-        return nums;
-    }
 };
 
 int main() 
