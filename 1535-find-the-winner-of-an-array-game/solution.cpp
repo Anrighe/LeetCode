@@ -4,6 +4,9 @@ class Solution
 {
     public:
     
+        /// @brief Finds the maximum element in the vector
+        /// @param arr Vector to search
+        /// @return The maximum element in the vector
         int max_element(std::vector<int>& arr)
         {
             int max = 0;
@@ -15,6 +18,13 @@ class Solution
             return max;
         }
 
+        /// @brief Finds the winner of the game, where the game is played between the first two 
+        ///     elements of the array and the winner is the larger of the two. The winner then
+        ///     plays against the next element in the array and so on. The game ends when one
+        ///     element has won k consecutive games.
+        /// @param arr Vector of integers
+        /// @param k Number of consecutive wins required to win the game
+        /// @return An integer representing the winner of the game
         int getWinner(std::vector<int>& arr, int k) 
         {
             int consecutive_wins = 0;

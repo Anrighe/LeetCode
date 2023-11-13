@@ -6,6 +6,9 @@ class Solution
 {
     public:
 
+        /// @brief Checks if a character is a vowel
+        /// @param value The ascii value of the character
+        /// @return true if value is a vowel, false otherwise
         bool is_vowel(int value)
         {
             if (value <= 90)
@@ -22,6 +25,10 @@ class Solution
             return false;
         }
 
+        /// @brief Sorts the vowels in a string based on their ascii value in non-decreasing order and 
+        ///     places them in the same positions in the string where other vowels were
+        /// @param s String to sort
+        /// @return The sorted string
         std::string sortVowels(std::string s) 
         {
             std::vector<char> vowels;
