@@ -1,8 +1,4 @@
 #include <iostream>
-#include <string>
-#include <algorithm> 
-#include <unordered_set>
-#include <vector>
 #include "solution.hpp"
 
 int main()
