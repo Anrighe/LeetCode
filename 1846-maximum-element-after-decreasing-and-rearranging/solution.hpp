@@ -9,6 +9,12 @@ class Solution
 {
     public:
 
+        /**
+         * @brief Finds the maximum element after decrementing and rearranging the given vector.
+         * 
+         * @param arr The vector to be rearranged.
+         * @return The maximum element after rearranging the vector.
+         */
         int maximumElementAfterDecrementingAndRearranging(std::vector<int>& arr) 
         {
             int max = MIN_VALUE;
