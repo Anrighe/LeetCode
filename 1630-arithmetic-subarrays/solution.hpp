@@ -4,6 +4,12 @@
 class Solution 
 {
     public:
+        /**
+         * Checks if the given subvector is an arithmetic sequence.
+         *
+         * @param subvector The vector to be checked.
+         * @return True if the subvector is an arithmetic sequence, false otherwise.
+         */
         bool is_arithmetic(std::vector<int> subvector)
         {   
             int subvector_size = subvector.size();
@@ -18,6 +24,14 @@ class Solution
             return true;
         }
 
+        /**
+         * Checks if the subarrays of the given array satisfy the arithmetic sequence property.
+         *
+         * @param nums The input array of integers.
+         * @param l The starting indices of the subarrays.
+         * @param r The ending indices of the subarrays.
+         * @return A vector of booleans indicating whether each subarray satisfies the arithmetic sequence property.
+         */
         std::vector<bool> checkArithmeticSubarrays(std::vector<int>& nums, std::vector<int>& l, std::vector<int>& r) 
         {
             std::vector<bool> answer;
